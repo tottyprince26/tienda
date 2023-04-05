@@ -19,7 +19,7 @@ class UserType extends AbstractType
             #->add('roles')
             #->add('estado')
             ->add('password', passwordType ::class , array('label' => 'Contraseña'))
-            ->add('ingresar', submitType ::class , array('label' => 'Ingresar'))
+            ->add('save', submitType ::class , array('label' => 'Ingresar'))
             ;
     }
 
