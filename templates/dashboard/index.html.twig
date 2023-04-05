@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DashboardController!{% endblock %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dashboard de productos</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: sans-serif;
+        background-color: #f3f3f3; 
+      }
+
+      .container { 
+        width: 1000px; 
+        margin: 0 auto; 
+      }
+
+      h1 { 
+        text-align: center; 
+        font-weight: normal; 
+        color: #444;  														   }
+
+      .dashboard {   width: 100%;   margin-top: 20px;}
+
+      .dashboard table {     width: 100%;     border-collapse: collapse;}
+
+      .dashboard table th, td{    text-align: left;    padding: 10px;}
+
+      .dashboard table th {     background-color:#444;     color:#fff;}
+
+      .dashboard table tr td{    background-color:#f2f2f2;}
+
+    </style>   
+</head> 
+<body>
+    <div class="container">
+        <h1>Dashboard de productos</h1>
+            <div class="dashboard">
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Categoría</th>
+                        <th></th><th></th><tr/>
+                        <tr>
+                        <td>1</td>
+                        <td>Producto 1</td>
+                        <td>$10.00</td>
+                        <td>20 unidades</td>
+                        <td>Categoría 1</td>
+                    </tr>
+                </table>
+            </div>
+    </div>
+</body>
+</html>
+{% endblock %}
