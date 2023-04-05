@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProveedorController!{% endblock %}
+{% block body %}
+    <div class="container"style="text-align:center; margin-top:100px; background-color: #c8c9b5">
+        <h1 style="margin-bottom:20px">Registro de Proveedor</h1>
+        
+        {{ form_start(form) }}
+            <div class="form-group" style="width:300px;margin-left:500px; margin-bottom:15px">
+                {{ form_label(form.nombre) }}
+                {{ form_widget(form.nombre, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group" style="width:300px;margin-left:500px; margin-bottom:15px">
+                {{ form_label(form.email,) }}
+                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group" style="width:300px;margin-left:500px; margin-bottom:15px">
+                {{ form_label(form.telefono) }}
+                {{ form_widget(form.telefono, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group" style="width:300px; margin-left:500px; margin-bottom:15px">
+                {{ form_label(form.direccion) }}
+                {{ form_widget(form.direccion, {'attr': {'class': 'form-control'}}) }}
+            </div style="margin-bottom:15px">
+            {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
