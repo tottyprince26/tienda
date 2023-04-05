@@ -42,8 +42,18 @@
     </style>   
 </head> 
 <body>
+ {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.userIdentifier }}
+        </div>
+        <div class="mb-3" style="margin-left:1350px">
+        <a class="btn btn-lg btn-danger " href="{{ path('app_login') }}">Logout</a>
+        </div>
+    {% endif %}
+
     <div class="container">
         <h1>Dashboard de productos</h1>
+
             <div class="dashboard">
                 <table>
                     <tr>

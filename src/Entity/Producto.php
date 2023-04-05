@@ -13,16 +13,16 @@ class Producto
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 150)]
+    #[ORM\Column(length: 150, nullable: true)]
     private ?string $nombre = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $descripcion = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?float $precion = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?int $stock = null;
 
     public function getId(): ?int
