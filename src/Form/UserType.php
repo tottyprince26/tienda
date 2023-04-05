@@ -17,8 +17,8 @@ class UserType extends AbstractType
         $builder
             ->add('email', emailType ::class , array('label' => 'Email'))
             #->add('roles')
-            #->add('estado')
-            ->add('password', passwordType ::class , array('label' => 'Contraseña'))
+            #->add('estado') //tamaño de la contraseña
+            ->add('password', passwordType ::class , array('label' => 'Contraseña'), array('attr' => array('minlength' => 8)), array('attr' => array('maxlength' => 16)))
             ->add('save', submitType ::class , array('label' => 'Ingresar'))
             ;
     }

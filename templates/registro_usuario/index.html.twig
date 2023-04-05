@@ -3,23 +3,35 @@
 {% block title %}REGISTRO DE USUARIO!{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <h1>Registro de usuario</h1>
+    <div class="container"style="text-align:center; margin-top:100px">
+        <h1 style="margin-bottom:20px">Registro de usuario</h1>
         {{ form_start(formulario) }}
-            <div class="form-group">
-                {{ form_label(formulario.email) }}
+            <div class="form-group" style="width:300px;margin-left:500px; margin-bottom:15px">
+                {{ form_label(formulario.email,) }}
                 {{ form_widget(formulario.email, {'attr': {'class': 'form-control'}}) }}
             </div>
-            <div class="form-group">
+            <div class="form-group" style="width:300px; margin-left:500px; margin-bottom:15px">
                 {{ form_label(formulario.password) }}
                 {{ form_widget(formulario.password, {'attr': {'class': 'form-control'}}) }}
-            </div>
+            </div style="margin-bottom:15px">
             {{ form_widget(formulario.save, {'attr': {'class': 'btn btn-primary'}}) }}
         {{ form_end(formulario) }}
     </div>
-    {% if app.session.flashbag.has('success') %}
-    <div class="alert alert-success">
-        {{ app.session.flashbag.get('success')[0] }}
+    <div class="container" style="text-align:center;margin-top: 15px">
+        {% if app.session.flashbag.has('success') %}
+            <div id="alert" class="alert alert-success">
+                <strong>{{ app.session.flashbag.get('success')[0] }}</strong>
+            </div>
+        {% else %}
+            <div id="alert" class="alert alert-danger">
+                <strong>correo electronico ya registrado</strong>
+            </div>
+        {% endif %}
     </div>
-{% endif %}
+    <script>
+    setTimeout(function() {
+        document.getElementById('alert').style.display = 'none';
+    }, 5000); // Cambia 10000 por el número de milisegundos que quieras
+</script>
+
 {% endblock %}
