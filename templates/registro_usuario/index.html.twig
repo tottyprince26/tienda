@@ -17,6 +17,10 @@
             {{ form_widget(formulario.save, {'attr': {'class': 'btn btn-primary'}}) }}
         {{ form_end(formulario) }}
     </div>
+    <div style="text-align:center; margin-right:500px">
+        <a href="{{ path('app_login') }}" style="margin-left:500px">¿Ya tienes cuenta? Inicia sesión</a>
+    </div>
+    <br>
     <div class="container" style="text-align:center;margin-top: 15px">
         {% if app.session.flashbag.has('success') %}
             <div id="alert" class="alert alert-success">
