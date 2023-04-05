@@ -13,13 +13,13 @@ class Proveedor
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 150)]
+    #[ORM\Column(length: 150, nullable: true)]
     private ?string $nombre = null;
 
-    #[ORM\Column(length: 150)]
+    #[ORM\Column(length: 150, nullable: true)]
     private ?string $email = null;
 
-    #[ORM\Column(length: 15)]
+    #[ORM\Column(length: 15, nullable: true)]
     private ?string $telefono = null;
 
     #[ORM\Column(length: 150)]
