@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello DashboardController!{% endblock %}
-
 {% block body %}
 
 <!DOCTYPE html>
@@ -9,6 +8,22 @@
   <head>
     <title>Dashboard de productos</title>
     <style type="text/css">
+      .hero-image {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("banner anuncio tecnologia Black Friday ilustrado moderno verde naranja.png");
+        height: 50%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+      }
+    .hero-text {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+    }
       * {
         margin: 0;
         padding: 0;
@@ -42,14 +57,29 @@
     </style>   
 </head> 
 <body>
-
- {% if app.user %}
+  <div style="background-color:black; color: white">
+  {% if app.user %}
         <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}
+          You are logged in as {{ app.user.userIdentifier }}
         </div>
+      {% endif %}
+    <div class="hero-image">
+      <div style="position: relative; width: 100%; height: 0; padding-top: 50.0000%;
+    padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+    border-radius: 8px; will-change: transform;">
+     
+      <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+        src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFfWfL6alY&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+      </iframe>
+    </div>
+    
+      <div class="hero-text">
+        <h1 style="color:white">TODO EN TECNOLOGÍA</h1>
+        <p>And I'm a Programmer</p>
        
-    {% endif %}
-
+      </div>
+    </div>
+  </div>
     <div class="container">
         <h1>Dashboard de productos</h1>
 
