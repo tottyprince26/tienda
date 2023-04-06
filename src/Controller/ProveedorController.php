@@ -29,4 +29,12 @@ class ProveedorController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+    #[Route('/proveedor/listar', name: 'app_proveedor_listar')]
+    public function listarProveedor( ManagerRegistry $mar ): Response
+    {
+        $proveedores = $mar->getRepository(Proveedor::class)->findAll();
+        return $this->render('proveedor/listarProveedor.html.twig', [
+            'proveedores' => $proveedores,
+        ]);
+    }
 }

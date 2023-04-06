@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listado de productos{% endblock %}
+
+{% block body %}
+    <h1 style="text-align:center">Listado de productos</h1>
+    <div style="text-align:center;margin-left:450px; margin-top: 80px">
+    <table class="table-primary" style="border:solid 1px black">
+        <thead>
+            <tr class="table-primary" style="background-color:#823c3c;">
+                <th class="table-primary" style="color:#f2ecb0; width:100px">Nombre</th>
+                <th class="table-primary" style="color:#f2ecb0; width:100px">Descripción</th>
+                <th class="table-primary" style="color:#f2ecb0; width:100px">Precio</th>
+                <th class="table-primary" style="color:#f2ecb0; width:100px">Stock</th>
+                <th class="table-primary" style="color:#f2ecb0; width:200px">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto in productos %}
+                <tr class="table-primary" style="background-color: ">
+                    <td style=" width:100px">{{ producto.nombre }}</td>
+                    <td style=" width:100px">{{ producto.descripcion }}</td>
+                    <td style=" width:100px">{{ producto.precio ~ '$' }}</td>
+                    <td style=" width:100px">{{producto.stock}}</td>
+                    <th><a class="btn btn-success">EDITAR</a> <a class="btn btn-danger">ELIMINAR </a> </th>
+                    
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    <a class="btn btn-primary" style="margin-left:450px; margin-top: 50px" href="{{ path('app_producto') }}" > Nuevo producto</a>
+{% endblock %}

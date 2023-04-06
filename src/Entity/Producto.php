@@ -20,7 +20,7 @@ class Producto
     private ?string $descripcion = null;
 
     #[ORM\Column(nullable: true)]
-    private ?float $precion = null;
+    private ?float $precio = null;
 
     #[ORM\Column(nullable: true)]
     private ?int $stock = null;
@@ -54,14 +54,14 @@ class Producto
         return $this;
     }
 
-    public function getPrecion(): ?float
+    public function getPrecio(): ?float
     {
-        return $this->precion;
+        return $this->precio;
     }
 
-    public function setPrecion(float $precion): self
+    public function setPrecio(float $precio): self
     {
-        $this->precion = $precion;
+        $this->precio = $precio;
 
         return $this;
     }
