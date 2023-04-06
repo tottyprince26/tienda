@@ -8,6 +8,7 @@
     <table class="table-primary" style="border:solid 1px black">
         <thead>
             <tr class="table-primary" style="background-color:#823c3c;">
+                <th class="table-primary"  style="color:#f2ecb0; width:100px" >ID</th>
                 <th class="table-primary" style="color:#f2ecb0; width:100px">Nombre</th>
                 <th class="table-primary" style="color:#f2ecb0; width:100px">Correo</th>
                 <th class="table-primary" style="color:#f2ecb0; width:100px">Telefono</th>
@@ -18,11 +19,13 @@
         <tbody>
             {% for proveedor in proveedores %}
                 <tr class="table-primary" style="background-color: ">
+                    <td style=" width:100px">{{ proveedor.id }}</td>
                     <td style=" width:100px">{{ proveedor.nombre }}</td>
                     <td style=" width:100px">{{ proveedor.email }}</td>
                     <td style=" width:100px">{{ proveedor.telefono ~ '$' }}</td>
                     <td style=" width:100px">{{proveedor.direccion}}</td>
-                    <th><a class="btn btn-success">EDITAR</a> <a class="btn btn-danger">ELIMINAR </a> </th>
+                    <th><a class="btn btn-success" href="{{ path('app_proveedor_editar', {id:proveedor.id})}}">EDITAR</a> 
+                    <a class="btn btn-danger" href="{{ path('app_proveedor_eliminar', {id:proveedor.id})}}">ELIMINAR </a> </th>
                     
                 </tr>
             {% endfor %}

@@ -3,11 +3,42 @@
 {% block title %}Listado de productos{% endblock %}
 
 {% block body %}
+
+    <style>
+        #search-input {
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: solid 1px black;
+            width: 350px;
+        }
+        #search-form {
+            display: flex;
+            width: 400px;
+            margin-left: 550px;
+            margin-top: 50px;
+        }
+        .buscar {
+            background-color: #823c3c;
+            color: #f2ecb0;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            margin-left: 10px;
+        }
+
+    </style>
+
     <h1 style="text-align:center">Listado de productos</h1>
+    <form id="search-form">
+        <input type="text" id="search-input" placeholder="Buscar producto">
+        <button type="submit" class="buscar">Buscar</button>
+    </form>
     <div style="text-align:center;margin-left:450px; margin-top: 80px">
-    <table class="table-primary" style="border:solid 1px black">
+    <table id="productos-table tbody"class="table-primary" style="border:solid 1px black">
         <thead>
             <tr class="table-primary" style="background-color:#823c3c;">
+                <th class="table-primary" style="color:#f2ecb0; width:100px">ID</th>
                 <th class="table-primary" style="color:#f2ecb0; width:100px">Nombre</th>
                 <th class="table-primary" style="color:#f2ecb0; width:100px">Descripción</th>
                 <th class="table-primary" style="color:#f2ecb0; width:100px">Precio</th>
@@ -18,16 +49,18 @@
         <tbody>
             {% for producto in productos %}
                 <tr class="table-primary" style="background-color: ">
+                    <td style=" width:100px">{{ producto.id }}</td>
                     <td style=" width:100px">{{ producto.nombre }}</td>
                     <td style=" width:100px">{{ producto.descripcion }}</td>
                     <td style=" width:100px">{{ producto.precio ~ '$' }}</td>
                     <td style=" width:100px">{{producto.stock}}</td>
-                    <th><a class="btn btn-success">EDITAR</a> <a class="btn btn-danger">ELIMINAR </a> </th>
-                    
+                    <td><a href="{{ path('app_producto_editar', {id:producto.id})}}" class="btn btn-primary">Editar</a>
+                    <a href="{{ path('app_producto_eliminar', {id:producto.id})}}"  class="btn btn-danger">Eliminar</a></td>                    
                 </tr>
             {% endfor %}
         </tbody>
     </table>
     </div>
-    <a class="btn btn-primary" style="margin-left:450px; margin-top: 50px" href="{{ path('app_producto') }}" > Nuevo producto</a>
+    <a class="btn btn-success" style="margin-left:450px; margin-top: 50px" href="{{ path('app_producto') }}" > Nuevo producto</a>
+
 {% endblock %}

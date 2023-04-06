@@ -54,6 +54,18 @@
 
       .dashboard table tr td{    background-color:#f2f2f2;}
 
+      .redes-sociales-icono:hover {
+        opacity: 0.8;
+        transition: all 0.2s ease-in-out;
+      }
+      .redes-sociales-icono:hover {
+        opacity: 0.8;
+        transition: all 0.2s ease-in-out;
+      }
+      .redes-sociales-icono:hover {
+        transform: scale(1.2);
+        transition: all 0.2s ease-in-out;
+      }
     </style>   
 </head> 
 <body>
@@ -80,28 +92,37 @@
       </div>
     </div>
   </div>
-    <div class="container">
-        <h1>Dashboard de productos</h1>
-
-            <div class="dashboard">
-                <table>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>Categoría</th>
-                        <th></th><th></th><tr/>
-                        <tr>
-                        <td>1</td>
-                        <td>Producto 1</td>
-                        <td>$10.00</td>
-                        <td>20 unidades</td>
-                        <td>Categoría 1</td>
-                    </tr>
-                </table>
-            </div>
-    </div>
+    
 </body>
+
+<footer style="background-color: #f9eee2; height: 100px">
+  <div class="container" >
+    <div class="row">
+      <div class="col-md-12">
+        <a href="https://www.facebook.com/TuUsuario/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384005.png" alt="Facebook" width="30" height="30" class="redes-sociales-icono">
+        </a>
+        <a href="https://twitter.com/TuUsuario/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3669/3669691.png" alt="Twitter" width="30" height="30" class="redes-sociales-icono">
+        </a>
+        <a href="https://www.instagram.com/TuUsuario/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3670/3670274.png" alt="Instagram" width="30" height="30" class="redes-sociales-icono">
+        </a>
+        <p class="text-center">Todos los derechos reservados</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </html>
 {% endblock %}
+
+{% block footer %}
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p class="text-center">Todos los derechos reservados</p>
+        </div>
+      </div>
+    </div>
+  {% endblock %}

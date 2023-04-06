@@ -10,10 +10,11 @@ use App\Form\ProductoFormType;
 use App\Repository\ProductoRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Persistence\ManagerRegistry;
-
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class ProductoController extends AbstractController
 {
+    //METODO PARA INSERTAR PRODUCTOS
     #[Route('/producto', name: 'app_producto')]
     public function insertarProducto(Request $req, ManagerRegistry $mry): Response
     {
@@ -24,29 +25,29 @@ class ProductoController extends AbstractController
             $em = $mry->getManager();
             $em->persist($producto);
             $em->flush();
-            //$this->addFlash('success', 'Proveedor agregado correctamente.');
+            //return new Response('Producto agregado correctamente.');
             return $this->redirectToRoute('app_producto');
         }
         return $this->render('producto/index.html.twig', [
             'formulario' => $form->createView(),
         ]);
     }
-/*
-    #[Route('/producto/editar/{id}', name: 'app_producto_editar', methods: ['GET', 'POST'])]
-    public function editarProducto(Request $req,Producto $producto,ProductoRepository $pr): Response
-    {
-        $mensaje ="";
-        $estado="";
-        $form = $this->createForm(ProductoFormType ::class ,   $producto, ['accion' => 'editar']);
-        $form->handleRequest($req);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $estado = $form->get('estado')->getData();
-            $pr->cambiarEstado($producto->getId(),$estado);
-            $mensaje = "El estado del producto se ha cambiado a ".$estado;
-            return $this->redirectToRoute('app_producto_listar');
-        }
+
+    //METODO PARA BUSCAR PRODUCTOS
+    public function searchProduct(Request $req, ManagerRegistry $mr){
+        $searchTerm = $req->query->get('searchTerm');
+        $em = $mr->getManager();
+        $queryBuilder = $em->getRepository(Producto::class)->createQueryBuilder('p');
+        $queryBuilder->where('p.id = :searchTerm OR p.nombre LIKE :nombre');
+        $queryBuilder->setParameter('searchTerm', $searchTerm);
+        $queryBuilder->setParameter('nombre', '%'.$searchTerm.'%');
+        $productos = $queryBuilder->getQuery()->getResult();
+        return $this->render('producto/listarProducto.html.twig', [
+            'productos' => $productos,
+        ]);    
     }
-*/
+
+    //METODO PARA LISTAR PRODUCTOS
     #[Route('/producto/listar', name: 'app_producto_listar')]
     public function listarProducto( ManagerRegistry $mar ): Response
     {
@@ -54,6 +55,36 @@ class ProductoController extends AbstractController
         return $this->render('producto/listarProducto.html.twig', [
             'productos' => $productos,
         ]);
+    }
+    
+    //METODO PARA EDITAR PRODUCTOS
+    #[Route ('/producto/editar/{id}', name: 'app_producto_editar')]
+    public function edit(Producto $producto, Request $req, ManagerRegistry $mr): Response
+    {
+        $form = $this->createForm(ProductoFormType::class, $producto);
+        $form->handleRequest($req);
+        if($form -> isSubmitted() && $form -> isValid()){   
+            $em = $mr->getManager();
+            $em->persist($producto);
+            $em->flush();
+            //return new Response('Producto editado correctamente.');
+            return $this->redirectToRoute('app_producto_listar');
+
+        }
+        return $this->render('producto/editarProducto.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    //METODO PARA ELIMINAR PRODUCTOS
+    #[Route('/producto/eliminar/{id}', name: 'app_producto_eliminar')]
+    public function eliminarProducto(Producto $producto, ManagerRegistry $mry): RedirectResponse
+    {
+        $em = $mry->getManager();
+        $em->remove($producto);
+        $em->flush();
+        //return new Response('Producto eliminado correctamente.');
+        return $this->redirectToRoute('app_producto_listar');
     }
 
 }
