@@ -9,6 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\ComboBoxType;
 
 class UserType extends AbstractType
 {
@@ -16,9 +17,9 @@ class UserType extends AbstractType
     {
         $builder
             ->add('email', emailType ::class , array('label' => 'Email'))
-            #->add('roles')
-            #->add('estado') //tamaño de la contraseña
             ->add('password', passwordType ::class , array('label' => 'Contraseña'), array('attr' => array('minlength' => 8)), array('attr' => array('maxlength' => 16)))
+          //  ->add('id_rol', ComboBoxType :: class)
+          
             ->add('save', submitType ::class , array('label' => 'Ingresar'))
             ;
     }

@@ -27,10 +27,9 @@ class RegistroUsuarioController extends AbstractController
             $user = $form -> getData();
             $user->setPassword($uphi->hashPassword($user, $form['password']->getData()));
             $errors = $validator->validate($user);
-            if (count($errors) > 0) {
+            if (count($errors) != 0) {
                 $errorMessage = $errors->get(0)->getMessage();
                 $this->addFlash('error', $errorMessage );
-                //$this->addFlash('no success', 'Usuario ya existe');
                 return $this->redirectToRoute('app_registro_usuario');
             }else{
                 $em = $mar -> getManager();

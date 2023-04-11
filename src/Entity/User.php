@@ -19,7 +19,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 180, unique: true)]
     private ?string $email = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: false)]
     private array $roles = [];
 
     #[ORM\Column(nullable: true, length: 255)]
@@ -33,7 +33,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function __construct()
     {
-       //$this->roles = ['ROLE_USER']; 
+       $this->roles = ['ROLE_USER']; 
         $this->estado = 'activo';
     }
 

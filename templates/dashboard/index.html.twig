@@ -6,24 +6,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+   
     <title>Dashboard de productos</title>
     <style type="text/css">
-      .hero-image {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("banner anuncio tecnologia Black Friday ilustrado moderno verde naranja.png");
-        height: 50%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
-      }
-    .hero-text {
-      text-align: center;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-    }
       * {
         margin: 0;
         padding: 0;
@@ -70,30 +55,36 @@
 </head> 
 <body>
   <div style="background-color:black; color: white">
-  {% if app.user %}
-        <div class="mb-3">
-          BIENVENIDO. <strong>{{ app.user.userIdentifier }}</strong>
+    {% if app.user %}
+      <div class="mb-3">
+        BIENVENIDO. <strong>{{ app.user.userIdentifier }}</strong>
         {{ app.user.id }}
-        </div>
-      {% endif %}
-    <div class="hero-image">
-      <div style="position: relative; width: 100%; height: 0; padding-top: 50.0000%;
-    padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-    border-radius: 8px; will-change: transform;">
-     
-      <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-        src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFfWfL6alY&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-      </iframe>
-    </div>
-    
-      <div class="hero-text">
-        <h1 style="color:white">TODO EN TECNOLOGÍA</h1>
-        <button style="background-color: #4CAF50; /* Green */ border: none; color: white;
-         padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px;" href="#">ver Productos</button>
-       
       </div>
+    {% endif %}
+  </div>
+
+<div id="carouselExampleFade" class="carousel slide carousel-fade">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src=""  style="height:300px" class="d-block w-100" alt="producto1">
+    </div>
+    <div class="carousel-item">
+      <img src="" class="d-block w-100" alt="producto2">
+    </div>
+    <div class="carousel-item">
+      <img src="" class="d-block w-100" alt="producto3">
     </div>
   </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -117,11 +108,13 @@
         </div>
       </div>
     </div>
-    
+    <script>
+      
+    </script>                
 </body>
 
 <footer style="background-color: #f9eee2; height: 100px">
-  <div class="container" >
+   <div class="container" >
     <div class="row">
       <div class="col-md-12">
         <a href="https://www.facebook.com/TuUsuario/" target="_blank">
@@ -141,13 +134,3 @@
 
 </html>
 {% endblock %}
-
-{% block footer %}
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <p class="text-center">Todos los derechos reservados</p>
-        </div>
-      </div>
-    </div>
-  {% endblock %}

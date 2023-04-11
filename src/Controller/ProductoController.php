@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Controller;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -69,7 +67,6 @@ class ProductoController extends AbstractController
     {
         $producto = $mar->getRepository(Producto::class)->find($id);
         $imagen = $producto->getImagen();
-
         $response = new Response($imagen);
         $response->headers->set('Content-Type', 'image/jpeg');
 
