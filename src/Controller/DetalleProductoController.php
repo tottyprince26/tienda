@@ -11,11 +11,12 @@ use Doctrine\Persistence\ManagerRegistry;
 class DetalleProductoController extends AbstractController
 {
     #[Route('/detalle/producto/{id}', name: 'app_detalle_producto')]
-    public function index(ManagerRegistry $doctrine): Response
+    public function index(ManagerRegistry $doctrine, $id): Response
     {
         $entityManager = $doctrine->getManager();
         // Obtiene los datos de los productos desde la base de datos
-        $productos = $entityManager->getRepository(Producto::class)->findAll();
+        $productos = $entityManager->getRepository(Producto::class)->findAll($id);
+        
         return $this->render('detalle_producto/index.html.twig', [
             'productos' => $productos,
 
