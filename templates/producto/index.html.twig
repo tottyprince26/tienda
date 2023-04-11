@@ -11,6 +11,11 @@
                     {{ form_label(formulario.nombre) }}
                     {{ form_widget(formulario.nombre, {'attr': {'class': 'form-control'}}) }}
                 </div>
+                        
+                <div class="form-group" style="width:300px;margin-left:500px; margin-bottom:15px;">
+                    {{ form_row(formulario.imagen, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
                 <div class="form-group" style="width:300px;margin-left:500px; margin-bottom:15px">
                     {{ form_label(formulario.descripcion,) }}
                     {{ form_widget(formulario.descripcion, {'attr': {'class': 'form-control'}}) }}
@@ -23,6 +28,7 @@
                     {{ form_label(formulario.stock) }}
                     {{ form_widget(formulario.stock, {'attr': {'class': 'form-control'}}) }}
                 </div style="margin-bottom:15px">
+
                 {{ form_widget(formulario.save, {'attr': {'class': 'btn btn-primary'}}) }}
             {{ form_end(formulario) }}
         </div>

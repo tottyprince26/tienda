@@ -4,8 +4,10 @@ namespace App\Entity;
 
 use App\Repository\ProductoRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProductoRepository::class)]
+
 class Producto
 {
     #[ORM\Id]
@@ -24,6 +26,10 @@ class Producto
 
     #[ORM\Column(nullable: true)]
     private ?int $stock = null;
+
+    #[ORM\Column(type: "string", length: 255, nullable: true)]
+    #[Assert\File(mimeTypes: ["image/jpeg", "image/png", "image/gif"], mimeTypesMessage: "Por favor, suba un archivo de imagen válido (JPEG, PNG o GIF)")]
+    private $imagen = null;
 
     public function getId(): ?int
     {
@@ -54,6 +60,17 @@ class Producto
         return $this;
     }
 
+    public function getImagen(): ?string
+    {
+        return $this->imagen;
+    }
+
+    public function setImagen(string $imagen): self
+    {
+        $this->imagen = $imagen;
+
+        return $this;
+    }
     public function getPrecio(): ?float
     {
         return $this->precio;

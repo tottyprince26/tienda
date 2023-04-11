@@ -11,6 +11,7 @@ use App\Repository\ProductoRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class ProductoController extends AbstractController
 {
@@ -23,6 +24,11 @@ class ProductoController extends AbstractController
         $form->handleRequest($req);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $mry->getManager();
+            $imagen = $form->get('imagen')->getdata();
+            if ($imagen instanceof UploadedFile) {
+                $contenido = file_get_contents($imagen->getRealPath());
+                $producto->setImagen($contenido);
+            }
             $em->persist($producto);
             $em->flush();
             //return new Response('Producto agregado correctamente.');
@@ -49,12 +55,25 @@ class ProductoController extends AbstractController
 
     //METODO PARA LISTAR PRODUCTOS
     #[Route('/producto/listar', name: 'app_producto_listar')]
-    public function listarProducto( ManagerRegistry $mar ): Response
+    public function listarProducto( ManagerRegistry $mar): Response
     {
         $productos = $mar->getRepository(Producto::class)->findAll();
         return $this->render('producto/listarProducto.html.twig', [
             'productos' => $productos,
         ]);
+    }
+
+    //METODO PARA MOSTRAR IMAGENES DE PRODUCTOS
+    #[Route('/producto/imagen/{id}', name: 'app_producto_imagen')]
+    public function mostrarImagen(ManagerRegistry $mar, $id)
+    {
+        $producto = $mar->getRepository(Producto::class)->find($id);
+        $imagen = $producto->getImagen();
+
+        $response = new Response($imagen);
+        $response->headers->set('Content-Type', 'image/jpeg');
+
+        return $response;
     }
     
     //METODO PARA EDITAR PRODUCTOS

@@ -34,11 +34,12 @@
         <input type="text" id="search-input" placeholder="Buscar producto">
         <button type="submit" class="buscar">Buscar</button>
     </form>
-    <div style="text-align:center;margin-left:450px; margin-top: 80px">
+    <div style="text-align:center;margin-left:300px; margin-top: 80px">
     <table id="productos-table tbody"class="table-primary" style="border:solid 1px black">
         <thead>
             <tr class="table-primary" style="background-color:#823c3c;">
                 <th class="table-primary" style="color:#f2ecb0; width:100px">ID</th>
+                <th class="table-primary" style="color:#f2ecb0; width:100px">Imagen</th>
                 <th class="table-primary" style="color:#f2ecb0; width:100px">Nombre</th>
                 <th class="table-primary" style="color:#f2ecb0; width:100px">Descripción</th>
                 <th class="table-primary" style="color:#f2ecb0; width:100px">Precio</th>
@@ -50,6 +51,9 @@
             {% for producto in productos %}
                 <tr class="table-primary" style="background-color: ">
                     <td style=" width:100px">{{ producto.id }}</td>
+                    <td>
+                        <img src="{{ path('app_producto_imagen', {'id': producto.id}) }}" alt="imagen" style="width: 200px; height: 200px; margin-bottom: 10px; margin-top:10px">
+                    </td>
                     <td style=" width:100px">{{ producto.nombre }}</td>
                     <td style=" width:100px">{{ producto.descripcion }}</td>
                     <td style=" width:100px">{{ producto.precio ~ '$' }}</td>
@@ -61,6 +65,6 @@
         </tbody>
     </table>
     </div>
-    <a class="btn btn-success" style="margin-left:450px; margin-top: 50px" href="{{ path('app_producto') }}" > Nuevo producto</a>
+    <a class="btn btn-success" style="margin-left:300px; margin-top: 50px" href="{{ path('app_producto') }}" > Nuevo producto</a>
 
 {% endblock %}

@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class ProductoFormType extends AbstractType
 {
@@ -19,6 +20,11 @@ class ProductoFormType extends AbstractType
             ->add('descripcion')
             ->add('precio', NumberType::class)
             ->add('stock', NumberType::class)
+            ->add('imagen', FileType::class, [
+                'label' => 'Imagen (JPEG, PNG o GIF)',
+                'mapped' => false,
+                'required' => false
+            ]) 
             ->add('save', SubmitType::class, ['label' => 'Guardar'])
             
         ;
