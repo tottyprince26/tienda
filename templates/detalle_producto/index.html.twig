@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DetalleProductoController!{% endblock %}
+
+{% block body %}
+
+<html>
+    <head>
+        <style>
+
+            .contenedor{
+                width: 100%;
+                height: 600px;
+                background-color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .product-image{
+                width:  50%;
+                height: 375px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .zoom-box {
+                position: absolute;
+                top: 0;
+                left: 100%;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                z-index: 2;
+            }
+
+            .zoom-box img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 200%;
+                height: 200%;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+            }
+
+            .zoom-image {
+                display: block;
+                max-width: none;
+                max-height: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 200%;
+                height: 200%;
+                z-index: 1;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+            }
+
+            .product-image:hover .zoom-image {
+                opacity: 1;
+            }
+
+            .detalle-product{
+                width:  50%;
+                height: 375px;
+                background-color: #F2E3DB;
+                font-size: 20px;
+                color: black;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+        </style>
+    </head>
+    <body>
+     <h1>Detalle del producto:</h1>
+        <div class="contenedor">
+            <div class="product-image">
+                {% for producto in productos %}
+                    <img src="{{ path('app_producto_imagen', {'id': producto.id}) }}" alt="Producto" class="card-img-top" alt="...">
+                    <div class="zoom-box">
+                        <img  src="{{ path('app_producto_imagen', {'id': producto.id}) }}" alt="Producto" class="zoom-image">
+                    </div>
+                {% endfor %}
+                
+            </div>
+            <div class="detalle-product">
+                <div style="margin-left:20px; margin-top:50px">
+                <p><strong>Detalle del producto</strong></p>
+                {% for producto in productos %}
+                <p><strong>Nombre:</strong> {{producto.nombre}}</p>
+                <p><strong>Descripcion:</strong> {{producto.descripcion}}</p>
+                <p><strong>Precio:</strong> {{producto.precio}}</p>
+                <p><strong>Stock:</strong> {{producto.stock}}</p>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+{% endblock %}

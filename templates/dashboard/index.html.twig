@@ -14,6 +14,28 @@
         padding: 0;
       }
 
+         #search-input {
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: solid 1px black;
+            width: 350px;
+        }
+        #search-form {
+            display: flex;
+            width: 400px;
+            margin-left: 550px;
+            margin-top: 50px;
+        }
+        .buscar {
+            background-color: #2a728e;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            margin-left: 10px;
+        }
+
       body {
         font-family: sans-serif;
         background-color: #f3f3f3; 
@@ -62,7 +84,10 @@
       </div>
     {% endif %}
   </div>
-
+ <form id="search-form">
+        <input type="text" id="search-input" placeholder="Buscar producto">
+        <button type="submit" class="buscar">Buscar</button>
+    </form>
 <div id="carouselExampleFade" class="carousel slide carousel-fade">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -98,7 +123,7 @@
                   <div class="card-body">
                     <h5 class="card-title">{{ producto.nombre }} {{ producto.precio }}</h5>
                     <p class="card-text">{{ producto.descripcion }}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                   <a href="{{ path('app_detalle_producto', {id:producto.id})}}" class="btn btn-primary">ver detalles</a>
                   </div>
                 </div>
               </div>
