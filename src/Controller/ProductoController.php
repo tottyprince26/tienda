@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class ProductoController extends AbstractController
 {
+    
     //METODO PARA INSERTAR PRODUCTOS
     #[Route('/producto', name: 'app_producto')]
     public function insertarProducto(Request $req, ManagerRegistry $mry): Response

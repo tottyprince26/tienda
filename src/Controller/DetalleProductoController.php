@@ -7,11 +7,12 @@ use App\Entity\Producto;
 use Doctrine\Persistence\ManagerRegistry;
 
 class DetalleProductoController extends AbstractController{
+
+    //METODO PARA MOSTRAR DETALLES DE PRODUCTOS
     #[Route('/detalle/producto/{id}', name: 'app_detalle_producto')]
     public function index(ManagerRegistry $doctrine, $id): Response
     {
         $em = $doctrine->getManager();
-
         // Obtiene los datos de los productos desde la base de datos
         $producto = $em->getRepository(Producto::class)->find($id);    
        // var_dump($producto);    
@@ -31,4 +32,5 @@ class DetalleProductoController extends AbstractController{
         $response->headers->set('Content-Type', 'image/jpeg');
         return $response;
     }
+    
 }

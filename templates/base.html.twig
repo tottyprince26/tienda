@@ -85,28 +85,28 @@
             <div class="container-fluid">
                 <a class="nav-link active" href="{{ path('app_principal') }}"  style="color:white">INICIO</a>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <div class="menu">
+                            <button class="btn">Menú</button>
+                                <ul class="submenu">
+                                    <li><a href="{{ path('app_producto_listar') }}">PRODUCTOS</a></li>
+                                    <li><a href="{{ path('app_proveedor_listar') }}">PROVEEDORES</a></li>
+                                    <li><a href="{{ path('app_cliente') }}">CLIENTES</a></li>
+                                </ul>
+                        </div>
                         <div class="menu">
                             <img class="icon" src="https://cdn.icon-icons.com/icons2/1993/PNG/512/account_avatar_face_man_people_profile_user_icon_123197.png"
-                             style="height:50px; width: 80px" alt="perfil">
+                                style="height:50px; width: 80px" alt="perfil">
                             <ul class="submenu">
                                 <li><a href="{{ path('app_producto_listar') }}">PERFIL</a></li>
                                 <li><a href="{{ path('app_login') }}">LOGOUT</a></li>
                             </ul>
                         </div>
-            <div class="menu">
-                <button class="btn">Menú</button>
-                    <ul class="submenu">
-                        <li><a href="{{ path('app_producto_listar') }}">PRODUCTOS</a></li>
-                        <li><a href="{{ path('app_proveedor_listar') }}">PROVEEDORES</a></li>
-                        <li><a href="{{ path('app_cliente') }}">CLIENTES</a></li>
-                    </ul>
-            </div>
-                       
                     </ul>
                 </div>
             </div>  
         </nav>
+
 {% block body %} {% endblock %}
     </body>
 </html>

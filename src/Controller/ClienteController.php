@@ -17,13 +17,6 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class ClienteController extends AbstractController
 {
-    /*#[Route('/cliente', name: 'app_cliente')]
-    public function index(): Response
-    {
-        return $this->render('cliente/index.html.twig', [
-            'controller_name' => 'ClienteController',
-        ]);
-    }*/
 
      //METODO PARA LISTAR clientes
      #[Route('/cliente', name: 'app_cliente')]

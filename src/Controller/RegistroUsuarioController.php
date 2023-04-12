@@ -16,13 +16,13 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class RegistroUsuarioController extends AbstractController
 {
+    //metodo para registrar usuarios 
     #[Route('/registro/usuario', name: 'app_registro_usuario')]
     public function index(Request $request, ManagerRegistry $mar,  ValidatorInterface $validator, UserPasswordHasherInterface $uphi): Response
     {
         $user = new User();
         $form = $this-> createForm(UserType ::class , $user);
         $form -> handleRequest($request);
-        //dump($form->getErrors(true, true));
         if($form -> isSubmitted() && $form -> isValid() ){
             $user = $form -> getData();
             $user->setPassword($uphi->hashPassword($user, $form['password']->getData()));

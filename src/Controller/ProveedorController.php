@@ -12,7 +12,6 @@ use App\Form\ProveedorFormType;
 use App\Repository\ProveedorRepository;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
-
 class ProveedorController extends AbstractController
 {
     #[Route('/proveedor', name: 'app_proveedor')]
@@ -25,13 +24,13 @@ class ProveedorController extends AbstractController
             $em = $mry->getManager();
             $em->persist($proveedor);
             $em->flush();
-            //$this->addFlash('success', 'Proveedor agregado correctamente.');
             return $this->redirectToRoute('app_proveedor');
         }
         return $this->render('proveedor/index.html.twig', [
             'form' => $form->createView(),
         ]);
     }
+    //METODO PARA LISTAR PRoveedores
     #[Route('/proveedor/listar', name: 'app_proveedor_listar')]
     public function listarProveedor( ManagerRegistry $mar ): Response
     {
@@ -41,8 +40,7 @@ class ProveedorController extends AbstractController
         ]);
     }
 
-    
-    //METODO PARA EDITAR PRODUCTOS
+    //METODO PARA EDITAR proveedores
     #[Route ('/proveedor/editar/{id}', name: 'app_proveedor_editar')]
     public function editProveedor(Proveedor $proveedor, Request $req, ManagerRegistry $mr): Response
     {
@@ -54,14 +52,13 @@ class ProveedorController extends AbstractController
             $em->flush();
             //return new Response('Producto editado correctamente.');
             return $this->redirectToRoute('app_proveedor_listar');
-
         }
         return $this->render('proveedor/editarProducto.html.twig', [
             'form' => $form->createView(),
         ]);
     }
 
-    //METODO PARA ELIMINAR PRODUCTOS
+    //METODO PARA ELIMINAR proveedores
     #[Route('/proveedor/eliminar/{id}', name: 'app_proveedor_eliminar')]
     public function eliminarProveedor(Proveedor $proveedor, ManagerRegistry $mry): RedirectResponse
     {
@@ -71,4 +68,5 @@ class ProveedorController extends AbstractController
         //return new Response('Producto eliminado correctamente.');
         return $this->redirectToRoute('app_proveedor_listar');
     }
+
 }
