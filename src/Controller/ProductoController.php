@@ -69,7 +69,6 @@ class ProductoController extends AbstractController
         $imagen = $producto->getImagen();
         $response = new Response($imagen);
         $response->headers->set('Content-Type', 'image/jpeg');
-
         return $response;
     }
     
@@ -85,7 +84,6 @@ class ProductoController extends AbstractController
             $em->flush();
             //return new Response('Producto editado correctamente.');
             return $this->redirectToRoute('app_producto_listar');
-
         }
         return $this->render('producto/editarProducto.html.twig', [
             'form' => $form->createView(),

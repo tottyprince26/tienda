@@ -24,8 +24,8 @@
                     <td style=" width:100px">{{ proveedor.email }}</td>
                     <td style=" width:100px">{{ proveedor.telefono ~ '$' }}</td>
                     <td style=" width:100px">{{proveedor.direccion}}</td>
-                    <th><a class="btn btn-success" href="{{ path('app_proveedor_editar', {id:proveedor.id})}}">EDITAR</a> 
-                    <a class="btn btn-danger" href="{{ path('app_proveedor_eliminar', {id:proveedor.id})}}">ELIMINAR </a> </th>
+                    <th><a class="btn btn-success" href="{{ path('app_proveedor_editar', {id:proveedor.id})}}" style="width:150px">EDITAR</a> 
+                    <a class="btn btn-danger" href="{{ path('app_proveedor_eliminar', {id:proveedor.id})}}" style="width:150px">ELIMINAR </a> </th>
                     
                 </tr>
             {% endfor %}

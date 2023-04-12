@@ -14,6 +14,7 @@
             <div class="form-group" style="width:300px; margin-left:500px; margin-bottom:15px">
                 {{ form_label(formulario.password) }}
                 {{ form_widget(formulario.password, {'attr': {'class': 'form-control'}}) }}
+             
             </div style="margin-bottom:15px">
            
 
@@ -45,7 +46,7 @@
     <script>
     setTimeout(function() {
         document.getElementById('alert').style.display = 'none';
-    }, 5000); // Cambia 10000 por el número de milisegundos que quieras
+    }, 5000); 
 </script>
 
 {% endblock %}
