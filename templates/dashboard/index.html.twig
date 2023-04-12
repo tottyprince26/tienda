@@ -2,11 +2,9 @@
 
 {% block title %}Hello DashboardController!{% endblock %}
 {% block body %}
-
 <!DOCTYPE html>
 <html>
   <head>
-
     <title>Dashboard de productos</title>
     <style type="text/css">
       * {
@@ -74,7 +72,8 @@
         transition: all 0.2s ease-in-out;
       }
     </style>   
-</head> 
+  </head> 
+
 <body>
   <div style="background-color:black; color: white">
     {% if app.user %}
@@ -84,6 +83,7 @@
       </div>
     {% endif %}
   </div>
+
  <form id="search-form">
         <input type="text" id="search-input" placeholder="Buscar producto">
         <button type="submit" class="buscar">Buscar</button>
@@ -121,7 +121,7 @@
         <div class="dashboard">
          <div class= "row">
           {% for producto in productos %}
-               <div class="col mb-3 mx-2">
+              <div class="col mb-3 mx-2">
                 <div class="card" style="width: 18rem;">
                   <img src="{{ path('app_producto_imagen', {'id': producto.id}) }}" alt="imagen" class="card-img-top" style="height:200px" alt="...">
                   <div class="card-body">
@@ -138,18 +138,18 @@
     </div>               
 </body>
 
-<footer style="background-color: #f9eee2; height: 100px">
-   <div class="container" >
-    <div class="row">
-      <div class="col-md-12">
+<footer style="background-color: #f9eee2; height: 100px; width:100%">
+  <div class="container" >
+    <div >
+      <div>
         <a href="https://www.facebook.com/TuUsuario/" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384005.png" alt="Facebook" width="30" height="30" class="redes-sociales-icono">
+          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384005.png" alt="Facebook" width="30" height="30" class="redes-sociales-icono">
         </a>
         <a href="https://twitter.com/TuUsuario/" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/3669/3669691.png" alt="Twitter" width="30" height="30" class="redes-sociales-icono">
+          <img src="https://cdn-icons-png.flaticon.com/512/3669/3669691.png" alt="Twitter" width="30" height="30" class="redes-sociales-icono">
         </a>
         <a href="https://www.instagram.com/TuUsuario/" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/3670/3670274.png" alt="Instagram" width="30" height="30" class="redes-sociales-icono">
+          <img src="https://cdn-icons-png.flaticon.com/512/3670/3670274.png" alt="Instagram" width="30" height="30" class="redes-sociales-icono">
         </a>
         <p class="text-center">Todos los derechos reservados</p>
       </div>

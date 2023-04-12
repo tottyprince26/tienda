@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ProveedorFormType extends AbstractType
 {
+    //metodo para crear el formulario de registro de proveedores
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -23,6 +24,7 @@ class ProveedorFormType extends AbstractType
         ;
     }
 
+    //metodo para configurar las opciones del formulario
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

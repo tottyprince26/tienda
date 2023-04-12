@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class ProductoFormType extends AbstractType
 {
+    //metodo para crear el formulario de registro de productos
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -25,8 +26,7 @@ class ProductoFormType extends AbstractType
                 'mapped' => false,
                 'required' => false
             ]) 
-            ->add('save', SubmitType::class, ['label' => 'Guardar'])
-            
+            ->add('save', SubmitType::class, ['label' => 'Guardar'])    
         ;
 
         if($options['accion'] == 'editar')
@@ -38,9 +38,9 @@ class ProductoFormType extends AbstractType
                 )
                 ));
         }
-
     }
 
+    //metodo para configurar las opciones del formulario
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

@@ -11,11 +11,8 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
+class ProductoController extends AbstractController{
 
-
-class ProductoController extends AbstractController
-{
-    
     //METODO PARA INSERTAR PRODUCTOS
     #[Route('/producto', name: 'app_producto')]
     public function insertarProducto(Request $req, ManagerRegistry $mry): Response
@@ -71,7 +68,6 @@ class ProductoController extends AbstractController
             $em = $mr->getManager();
             $em->persist($producto);
             $em->flush();
-            //return new Response('Producto editado correctamente.');
             return $this->redirectToRoute('app_producto_listar');
         }
         return $this->render('producto/editarProducto.html.twig', [

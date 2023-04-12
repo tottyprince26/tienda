@@ -1,9 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Listado de productos{% endblock %}
-
 {% block body %}
-
     <style>
         #search-input {
             border-top: none;
@@ -28,9 +26,7 @@
         }
 
     </style>
-
     <h1 style="text-align:center">Listado de productos</h1>
-   
     <div style="text-align:center;margin-left:300px; margin-top: 80px">
     <table id="productos-table tbody"class="table-primary" style="border:solid 1px black">
         <thead>
@@ -58,11 +54,9 @@
                     <td><a href="{{ path('app_producto_editar', {id:producto.id})}}" class="btn btn-primary">Editar</a>
                     <a href="{{ path('app_producto_eliminar', {id:producto.id})}}"  class="btn btn-danger">Eliminar</a></td>                    
                 </tr>
-            {% endfor %}
-            
+            {% endfor %}   
         </tbody>
     </table>
     </div>
     <a class="btn btn-success" style="margin-left:300px; margin-top: 50px" href="{{ path('app_producto') }}" > Nuevo producto</a>
-
 {% endblock %}

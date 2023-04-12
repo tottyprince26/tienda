@@ -14,6 +14,8 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class ProveedorController extends AbstractController
 {
+    
+    //METODO PARA INSERTAR PROVEEDORES
     #[Route('/proveedor', name: 'app_proveedor')]
     public function insertarProveedor(Request $req, ManagerRegistry $mry): Response
     {
@@ -30,6 +32,7 @@ class ProveedorController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
     //METODO PARA LISTAR PRoveedores
     #[Route('/proveedor/listar', name: 'app_proveedor_listar')]
     public function listarProveedor( ManagerRegistry $mar ): Response
@@ -53,7 +56,7 @@ class ProveedorController extends AbstractController
             //return new Response('Producto editado correctamente.');
             return $this->redirectToRoute('app_proveedor_listar');
         }
-        return $this->render('proveedor/editarProducto.html.twig', [
+        return $this->render('proveedor/editarProveedor.html.twig', [
             'form' => $form->createView(),
         ]);
     }

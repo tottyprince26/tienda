@@ -14,11 +14,7 @@
             <div class="form-group" style="width:300px; margin-left:500px; margin-bottom:15px">
                 {{ form_label(formulario.password) }}
                 {{ form_widget(formulario.password, {'attr': {'class': 'form-control'}}) }}
-             
             </div style="margin-bottom:15px">
-           
-
-
             {{ form_widget(formulario.save, {'attr': {'class': 'btn btn-primary'}}) }}
         {{ form_end(formulario) }}
     </div>
@@ -27,22 +23,19 @@
     </div>
     <br>
     <div class="container" style="text-align:center;margin-top: 15px">
-
-    {% set error_message = 'El correo electrónico ya está registrado, por favor intente con otro.' %}
-
+        {% set error_message = 'El correo electrónico ya está registrado, por favor intente con otro.' %}
         {% if app.session.flashbag.has('success') %}
             <div id="alert" class="alert alert-success">
                 <strong>{{ app.session.flashbag.get('success')[0] }}</strong>
             </div>
         {% endif %}
-
-         {% if app.session.flashbag.has('error')  %}
+        {% if app.session.flashbag.has('error')  %}
             <div id="alert" class="alert alert-danger">
                 <strong>{{ error_message }}</strong>
             </div>
         {% endif %}
-
     </div>
+    
     <script>
     setTimeout(function() {
         document.getElementById('alert').style.display = 'none';

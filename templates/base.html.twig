@@ -16,66 +16,66 @@
         {% endblock %}
 
         <style>
-            .menu {
-            position: relative;
-            }
-            .btn {
-            background-color: #2a728e;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            cursor: pointer;
-            }
-            .icon{
+                .menu {
+                position: relative;
+                }
+                .btn {
                 background-color: #2a728e;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            cursor: pointer;
-            }
-            .submenu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background-color: #f1f1f1;
-            padding: 0;
-            margin: 0;
-            opacity: 0;
-            visibility: hidden;
-            z-index: 999;
-            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-            -webkit-transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-            }
-            .submenu li {
-            display: block;
-            }
+                color: white;
+                padding: 12px 24px;
+                border: none;
+                cursor: pointer;
+                }
+                .icon{
+                    background-color: #2a728e;
+                color: white;
+                padding: 12px 24px;
+                border: none;
+                cursor: pointer;
+                }
+                .submenu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #f1f1f1;
+                padding: 0;
+                margin: 0;
+                opacity: 0;
+                visibility: hidden;
+                z-index: 999;
+                transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+                -webkit-transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+                }
+                .submenu li {
+                display: block;
+                }
 
-            .submenu li a {
-            display: block;
-            padding: 12px 24px;
-            background-color:#f2ecb0;
-            width: 150px;
-            font-size:12px;
-            color: black;
-            text-decoration: none;
-            }
+                .submenu li a {
+                display: block;
+                padding: 12px 24px;
+                background-color:#f2ecb0;
+                width: 150px;
+                font-size:12px;
+                color: black;
+                text-decoration: none;
+                }
 
-            .btn:hover + .submenu,
-            .submenu:hover {
-            opacity: 1;
-            visibility: visible;
-            transition-delay: 0.3s;
-            -webkit-transition-delay: 0.3s;
-            }
-
-            .icon:hover + .submenu,
-            .submenu:hover{
+                .btn:hover + .submenu,
+                .submenu:hover {
                 opacity: 1;
-            visibility: visible;
-            transition-delay: 0.3s;
-            -webkit-transition-delay: 0.3s;
-            }
+                visibility: visible;
+                transition-delay: 0.3s;
+                -webkit-transition-delay: 0.3s;
+                }
+
+                .icon:hover + .submenu,
+                .submenu:hover{
+                    opacity: 1;
+                visibility: visible;
+                transition-delay: 0.3s;
+                -webkit-transition-delay: 0.3s;
+                }
 
 
         </style>
