@@ -77,24 +77,21 @@
      <h1>Detalle del producto:</h1>
         <div class="contenedor">
             <div class="product-image">
-                {% for producto in productos %}
-                    <img src="{{ path('app_producto_imagen', {'id': producto.id}) }}" alt="Producto" class="card-img-top" alt="...">
+              
+                    <img src="{{ path('app_producto_imagen', {'id': producto.id}) }}" alt="Producto" style="height:350px" class="card-img-top" alt="...">
                     <div class="zoom-box">
                         <img  src="{{ path('app_producto_imagen', {'id': producto.id}) }}" alt="Producto" class="zoom-image">
                     </div>
-                {% endfor %}
                 
             </div>
             <div class="detalle-product">
                 <div style="margin-left:20px; margin-top:50px">
-                <p><strong>Detalle del producto</strong></p>
-                {% for producto in productos %}
+                <p><strong style="font-size:50px">Detalles:</strong></p>
                 
                 <p><strong>Nombre:</strong> {{producto.nombre}}</p>
                 <p><strong>Descripcion:</strong> {{producto.descripcion}}</p>
-                <p><strong>Precio:</strong> {{producto.precio}}</p>
+                <p><strong>Precio:</strong> {{producto.precio ~ '$' }}</p>
                 <p><strong>Stock:</strong> {{producto.stock}}</p>
-                {% endfor %}
                 </div>
             </div>
         </div>

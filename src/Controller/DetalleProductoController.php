@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Controller;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,13 +8,15 @@ use Doctrine\Persistence\ManagerRegistry;
 
 class DetalleProductoController extends AbstractController{
     #[Route('/detalle/producto/{id}', name: 'app_detalle_producto')]
-    public function index(ManagerRegistry $doctrine): Response
+    public function index(ManagerRegistry $doctrine, $id): Response
     {
         $em = $doctrine->getManager();
+
         // Obtiene los datos de los productos desde la base de datos
-        $productos = $em->getRepository(Producto::class);        
+        $producto = $em->getRepository(Producto::class)->find($id);    
+       // var_dump($producto);    
         return $this->render('detalle_producto/index.html.twig', [
-            'productos' => $productos,
+            'producto' => $producto,
             'controller_name' => 'DetalleProductoController',
         ]);
     }
