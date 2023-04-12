@@ -7,7 +7,6 @@
 <html>
   <head>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
     <title>Dashboard de productos</title>
     <style type="text/css">
       * {
@@ -126,7 +125,7 @@
                 <div class="card" style="width: 18rem;">
                   <img src="{{ path('app_producto_imagen', {'id': producto.id}) }}" alt="imagen" class="card-img-top" style="height:200px" alt="...">
                   <div class="card-body">
-                    <h5 class="card-title">{{ producto.nombre }} {{ producto.precio }}</h5>
+                    <h5 class="card-title">{{ producto.nombre }} | {{ producto.precio ~ '$'}}</h5>
                     <p class="card-text">{{ producto.descripcion }}</p>
                    <a href="{{ path('app_detalle_producto', {id:producto.id})}}" class="btn btn-primary">ver detalles</a>
                   </div>
@@ -136,10 +135,7 @@
           </div>
         </div>
       </div>
-    </div>
-    <script>
-      
-    </script>                
+    </div>               
 </body>
 
 <footer style="background-color: #f9eee2; height: 100px">

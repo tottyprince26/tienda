@@ -11,6 +11,8 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
+
+
 class ProductoController extends AbstractController
 {
     //METODO PARA INSERTAR PRODUCTOS
@@ -35,20 +37,6 @@ class ProductoController extends AbstractController
         return $this->render('producto/index.html.twig', [
             'formulario' => $form->createView(),
         ]);
-    }
-
-    //METODO PARA BUSCAR PRODUCTOS
-    public function searchProduct(Request $req, ManagerRegistry $mr){
-        $searchTerm = $req->query->get('searchTerm');
-        $em = $mr->getManager();
-        $queryBuilder = $em->getRepository(Producto::class)->createQueryBuilder('p');
-        $queryBuilder->where('p.id = :searchTerm OR p.nombre LIKE :nombre');
-        $queryBuilder->setParameter('searchTerm', $searchTerm);
-        $queryBuilder->setParameter('nombre', '%'.$searchTerm.'%');
-        $productos = $queryBuilder->getQuery()->getResult();
-        return $this->render('producto/listarProducto.html.twig', [
-            'productos' => $productos,
-        ]);    
     }
 
     //METODO PARA LISTAR PRODUCTOS

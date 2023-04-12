@@ -30,10 +30,7 @@
     </style>
 
     <h1 style="text-align:center">Listado de productos</h1>
-    <form id="search-form">
-        <input type="text" id="search-input" placeholder="Buscar producto">
-        <button type="submit" class="buscar">Buscar</button>
-    </form>
+   
     <div style="text-align:center;margin-left:300px; margin-top: 80px">
     <table id="productos-table tbody"class="table-primary" style="border:solid 1px black">
         <thead>
@@ -47,7 +44,7 @@
                 <th class="table-primary" style="color:#f2ecb0; width:200px">Acciones</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="productos-table-body">
             {% for producto in productos %}
                 <tr class="table-primary" style="background-color: ">
                     <td style=" width:100px">{{ producto.id }}</td>
@@ -62,6 +59,7 @@
                     <a href="{{ path('app_producto_eliminar', {id:producto.id})}}"  class="btn btn-danger">Eliminar</a></td>                    
                 </tr>
             {% endfor %}
+            
         </tbody>
     </table>
     </div>

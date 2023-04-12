@@ -1,3 +1,8 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
+    
+app_producto_buscar:
+    path: '/producto/buscar'
+    methods: GET
+    controller: App\Controller\ProductoController::searchProduct
